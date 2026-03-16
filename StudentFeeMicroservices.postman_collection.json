@@ -1,0 +1,115 @@
+{
+  "info": {
+    "name": "Student & Fee Microservices",
+    "_postman_id": "student-fee-microservices-collection",
+    "description": "Postman collection for student-service and fee-service APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Student",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8081/api/students",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["api", "students"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"studentId\": \"STU-001\",\n  \"name\": \"StudOne\",\n  \"grade\": \"5\",\n  \"mobileNumber\": \"9876543210\",\n  \"schoolName\": \"Dubai International\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Get Student by studentId",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8081/api/students/STU-001",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["api", "students", "STU-001"]
+        }
+      }
+    },
+    {
+      "name": "List Students",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8081/api/students",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["api", "students"]
+        }
+      }
+    },
+    {
+      "name": "Collect Fee",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8082/api/receipts",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "receipts"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"studentId\": \"STU-001\",\n  \"amount\": 1500.00,\n  \"paymentMode\": \"CASH\",\n  \"description\": \"Tuition fee for March\"\n}"
+        }
+      }
+    },
+    {
+      "name": "List Receipts",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8082/api/receipts",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "receipts"]
+        }
+      }
+    },
+    {
+      "name": "List Receipts by studentId",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8082/api/receipts?studentId=STU-001",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "receipts"],
+          "query": [
+            {
+              "key": "studentId",
+              "value": "STU-001"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+
